@@ -1,0 +1,37 @@
+.container {
+  margin: 100px;
+  padding: 100px;
+}
+
+.icon-bar {
+  width: 90px;
+  background-color: #555;
+}
+
+.icon-bar a {
+  display: block;
+  text-align: center;
+  padding: 16px;
+  color: #fff;
+  font-size: 36px;
+}
+
+.icon-bar a:hover {
+  background-color: #000;
+}
+
+.active {
+  background-color: #04aa6d;
+}
+
+.horizontal .icon-bar {
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.horizontal .icon-bar a {
+  float: left;
+  width: 20%;
+  box-sizing: border-box;
+}
