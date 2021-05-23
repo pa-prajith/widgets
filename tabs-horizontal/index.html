@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tabs</title>
+  </head>
+  <style>
+    * {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+    .container {
+      margin: 30px;
+      padding: 20px;
+    }
+
+    .tabs {
+      float: left;
+      background-color: #f1f1f1;
+      overflow: hidden;
+      border: 1px solid #ccc;
+      width: 30%;
+    }
+
+    .tab-links {
+      padding: 12px;
+      display: block;
+      font-size: 20px;
+      border: none;
+      outline: none;
+      background-color: inherit;
+      transition: all 0.2s ease-in;
+      width: 100%;
+      text-align: left;
+    }
+
+    .tab-links:hover {
+      background-color: #ddd;
+    }
+
+    .tab-content {
+      float: left;
+      display: none;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-left: 0;
+      width: 70%;
+    }
+
+    .tab-content-show {
+      display: block;
+    }
+
+    .tab-active {
+      background-color: #999;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <div class="tabs">
+        <button class="tab-links" data-content-id="tab_1">Tab - 1</button>
+        <button class="tab-links" data-content-id="tab_2">Tab - 2</button>
+        <button class="tab-links" data-content-id="tab_3">Tab - 3</button>
+      </div>
+      <div class="tab-content" id="tab_1">
+        <h2>Tab 1</h2>
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod sit
+          accusamus, quam corporis nemo error ratione odio cumque neque
+          temporibus quae, a atque maiores, quisquam beatae illo sint ab
+          praesentium?
+        </p>
+      </div>
+      <div class="tab-content" id="tab_2">
+        <h2>Tab 2</h2>
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod sit
+          accusamus, quam corporis nemo error ratione odio cumque neque
+          temporibus quae, a atque maiores, quisquam beatae illo sint ab
+          praesentium?
+        </p>
+      </div>
+      <div class="tab-content" id="tab_3">
+        <h2>Tab 3</h2>
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod sit
+          accusamus, quam corporis nemo error ratione odio cumque neque
+          temporibus quae, a atque maiores, quisquam beatae illo sint ab
+          praesentium?
+        </p>
+      </div>
+    </div>
+    <script>
+      const tabs = document.querySelectorAll(".tabs .tab-links");
+      tabs.forEach((ele) => {
+        ele.addEventListener("click", function (e) {
+          e.preventDefault();
+          document.querySelectorAll(".tab-active").forEach((e) => {
+            e.classList.remove("tab-active");
+          });
+          const tabContents = document.querySelectorAll(".tab-content");
+          tabContents.forEach((t) => {
+            t.classList.remove("tab-content-show");
+          });
+          const selectedEle = ele.dataset.contentId;
+          document
+            .querySelector(`#${selectedEle}`)
+            .classList.add("tab-content-show");
+          ele.classList.add("tab-active");
+        });
+      });
+    </script>
+  </body>
+</html>
