@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=`, initial-scale=1.0" />
+    <title>Accordion</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
+
+      .container {
+        margin: 30px;
+        padding: 30px;
+      }
+
+      .accordion .header {
+        height: 70px;
+        background-color: #555;
+        color: white;
+        font-size: 30px;
+        text-align: right;
+        cursor: pointer;
+      }
+
+      .accordion {
+        margin: 10px;
+      }
+
+      .accordion .header .content {
+        vertical-align: middle;
+        display: inline-block;
+        padding: 10px;
+      }
+
+      .accordion .body {
+        padding: 0;
+        background-color: #ccc;
+        opacity: 0;
+        height: 0;
+        transition: all 0.3s ease-in;
+      }
+      .accordion .show {
+        padding: 15px;
+        opacity: 1;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="accordion">
+        <div class="header">
+          <span class="content">+</span>
+        </div>
+        <div class="body">
+          1. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Doloremque, neque. Quibusdam libero quas voluptas, ipsa neque natus
+          similique perspiciatis. Excepturi consequatur, veniam laudantium eaque
+          perspiciatis sunt maxime esse necessitatibus dolorum.
+        </div>
+      </div>
+      <div class="accordion">
+        <div class="header">
+          <span class="content">+</span>
+        </div>
+        <div class="body">
+          2. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Doloremque, neque. Quibusdam libero quas voluptas, ipsa neque natus
+          similique perspiciatis. Excepturi consequatur, veniam laudantium eaque
+          perspiciatis sunt maxime esse necessitatibus dolorum.
+        </div>
+      </div>
+      <div class="accordion">
+        <div class="header">
+          <span class="content">+</span>
+        </div>
+        <div class="body">
+          3. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Doloremque, neque. Quibusdam libero quas voluptas, ipsa neque natus
+          similique perspiciatis. Excepturi consequatur, veniam laudantium eaque
+          perspiciatis sunt maxime esse necessitatibus dolorum.
+        </div>
+      </div>
+    </div>
+    <script>
+      const accordion = document.querySelectorAll(".accordion");
+      accordion.forEach((ele) => {
+        let header = ele.querySelector(".header");
+        header.addEventListener("click", (e) => {
+          e.preventDefault();
+          header.nextElementSibling.classList.toggle("show");
+
+          header.querySelector(".content").textContent =
+            header.nextElementSibling.classList.contains("show") ? "-" : "+";
+        });
+      });
+    </script>
+  </body>
+</html>
